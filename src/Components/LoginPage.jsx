@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const [obj, setObj] = useState({ name: "", pass: "" });
   const navigate = useNavigate();
   function onClickHandle() {
+    props.onClick(obj);
     if (obj.name === "Dhruv" && obj.pass === "123") {
-      const username = obj.name;
-      const password = obj.pass;
-      navigate("/home", { replace: true, state: { username, password } });
+      navigate("/home");
     } else {
       alert("Incorrect Credential");
     }
