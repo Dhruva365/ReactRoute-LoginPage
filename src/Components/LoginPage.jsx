@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ValidateContext } from "../App";
 
-export default function LoginPage(props) {
+export default function LoginPage() {
   const [obj, setObj] = useState({ name: "", pass: "" });
   const navigate = useNavigate();
+  const { changePath, setChangePath } = useContext(ValidateContext);
+  console.log(changePath);
+
   function onClickHandle() {
-    props.onClick(obj);
     if (obj.name === "Dhruv" && obj.pass === "123") {
+      localStorage.setItem("name1", obj.name);
+      setChangePath(true);
       navigate("/home");
     } else {
       alert("Incorrect Credential");
