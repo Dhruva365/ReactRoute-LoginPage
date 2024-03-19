@@ -4,14 +4,14 @@ import { ValidateContext } from "../App";
 
 export default function LoginPage() {
   const [obj, setObj] = useState({ name: "", pass: "" });
+  const { check, setCheck } = useContext(ValidateContext);
   const navigate = useNavigate();
-  const { changePath, setChangePath } = useContext(ValidateContext);
-  console.log(changePath);
 
   function onClickHandle() {
     if (obj.name === "Dhruv" && obj.pass === "123") {
       localStorage.setItem("name1", obj.name);
-      setChangePath(true);
+      localStorage.setItem("key", "token");
+      setCheck("checked");
       navigate("/home");
     } else {
       alert("Incorrect Credential");

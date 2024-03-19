@@ -1,23 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import { ValidateContext } from "../App";
 import { useContext, useEffect } from "react";
+import { ValidateContext } from "../App";
 
 export default function Home() {
-  const { changePath, setChangePath } = useContext(ValidateContext);
   const navigate = useNavigate();
-  console.log(changePath);
+  const { check, setCheck } = useContext(ValidateContext);
+  console.log(check);
   function clickHandle() {
+    localStorage.removeItem("key");
+    localStorage.removeItem("name1");
     navigate("/");
   }
   useEffect(() => {
-    if (changePath === false) {
+    if (check != "token" && localStorage.getItem("key") != "token") {
       navigate("/");
     }
-  }, [changePath]);
+  }, [check]);
 
   return (
     <>
-      {changePath ? (
+      {localStorage.getItem("key") === "token" ? (
         <div>
           <h1>This is Homepage</h1>
           <p>Welcome {localStorage.getItem("name1")}</p>

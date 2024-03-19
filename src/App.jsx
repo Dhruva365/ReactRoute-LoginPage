@@ -7,10 +7,10 @@ import { Routes, Route } from "react-router-dom";
 
 export const ValidateContext = createContext();
 function App() {
-  const [changePath, setChangePath] = useState(false);
+  const [check, setCheck] = useState("");
   return (
     <>
-      <ValidateContext.Provider value={{ changePath, setChangePath }}>
+      <ValidateContext.Provider value={{ check, setCheck }}>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<Home />} />
