@@ -1,5 +1,9 @@
 # ReactRoute-LoginPage
 
-In this Learning project have used hooks like useState and also React Router specfic hooks like useNavigate and useLocation. Here its normal login page, if you logged in you will move to the Hompage where your username will be passed while you navigate from login page to homepage and will be displayed in homepage. If you refresh the home page the username will still be visible and also once you logged in you won't be able to redirect to login page from homepage.
+In this Learning project I have used hooks like useState, useContext, useEffect and also React Router specfic hooks like useNavigate.
+Here its normal login page, if you logged in you will move to the Hompage where the username will be stored as local storage while you navigate from login page to homepage and the name would be displayed on the homepage. 
+If you refresh the home page the content would still be visible. Once you logged-in and move to the homepage you won't be able to go back to the loginpage through top left arrow button. 
+Most Importantly you won't be able to visit the homepage without logging in evenby manually changing the path you won't.
+Once you logged out you have to login again to visit the Homepage.
 
-One issue is left for handling that is if you manually changed the url to homepage it would render the homepage but it should only render after logged in. 
+Note: This is a conceptual project so here username(Dhruv) and password(123) are hardcoded, therfore it would only accepts these credentials and rest would be considered as incorrect.
