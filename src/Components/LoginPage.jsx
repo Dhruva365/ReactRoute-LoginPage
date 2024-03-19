@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ValidateContext } from "../App";
 
@@ -6,6 +6,12 @@ export default function LoginPage() {
   const [obj, setObj] = useState({ name: "", pass: "" });
   const { check, setCheck } = useContext(ValidateContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("key") == "token") {
+      navigate("/home");
+    }
+  }, []);
 
   function onClickHandle() {
     if (obj.name === "Dhruv" && obj.pass === "123") {
